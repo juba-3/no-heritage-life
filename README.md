@@ -4,12 +4,12 @@ Jeu Android d’exploration à la première personne. Ce dépôt public héberge
 
 ## Télécharger
 
-[Release 1.4.5 — mode de vol rapide](https://github.com/juba-3/no-heritage-life/releases/tag/v1.4.5-vol)
+[Release 1.4.6 — thermique et pause](https://github.com/juba-3/no-heritage-life/releases/tag/v1.4.6-thermique)
 
-- [APK Android](https://github.com/juba-3/no-heritage-life/releases/download/v1.4.5-vol/No_Heritage_Life_V1.apk)
+- [APK Android](https://github.com/juba-3/no-heritage-life/releases/download/v1.4.6-thermique/No_Heritage_Life_V1.apk)
 - [Packs pour import local](https://github.com/juba-3/no-heritage-life/releases/download/v1.4.1-paysages/No_Heritage_Life_Ressources_1.4.1.zip)
 - [Manifeste réellement configuré](https://github.com/juba-3/no-heritage-life/releases/download/v1.4.1-paysages/manifest.json)
-- [Empreintes SHA256](https://github.com/juba-3/no-heritage-life/releases/download/v1.4.5-vol/SHA256SUMS.txt)
+- [Empreintes SHA256](https://github.com/juba-3/no-heritage-life/releases/download/v1.4.6-thermique/SHA256SUMS.txt)
 
 ## Installer et voler
 
@@ -24,12 +24,16 @@ Le vol traverse les structures pour faciliter les essais. En vol rapide ou élev
 
 ## Version et validation
 
-APK **1.4.5-vol**, code **11** ; contenu **1.4.1** ; Godot **4.6.3 Compatibility** ; Android **10+**, **ARMv7 et ARM64**.
+APK **1.4.6-thermique**, code **12** ; contenu **1.4.1** ; Godot **4.6.3 Compatibility** ; Android **10+**, **ARMv7 et ARM64**.
 
-Le correctif de clignotement de 1.4.4, les reflets, l’éclairage et les budgets mémoire/thermiques de 1.4.3 sont conservés. Le joueur a confirmé la disparition du clignotement avec la version précédente.
+Cette version coupe le rendu 3D pendant la pause, suspend les nouvelles captures de reflets en vol élevé/rapide ou sous bridage sévère, et déclenche plus tôt la prévention thermique. Les journaux sont encodés et écrits par un travailleur unique. Le diagnostic distingue les 10/60 dernières secondes de jeu et propose un compteur natif Android optionnel, distinct de la mémoire totale.
 
-Sous Godot/Linux : **39 contrôles de vol** et **319 contrôles de régression** réussis. Le vol est également contrôlé à partir des ressources exactes de l’APK, avec les packs installés. La mise à jour code 10 → 11 conserve les packs, préférences et sauvegarde témoin. Signature et alignement 16 Kio vérifiés.
+Mode de vol, caméra, décors et correctif de clignotement conservés. Les reflets proches sont repris au sol ; leurs rafraîchissements sont espacés et peuvent attendre pendant le refroidissement.
 
-Le nouveau mode reste à essayer sur téléphone. Ces vérifications ne mesurent pas la chauffe ou les performances du S23 Ultra ; les longues sessions et la stabilité sur l’appareil restent à confirmer. Le menu **COPIER LE DIAGNOSTIC** indique aussi le mode de déplacement et sa vitesse.
+Sous Godot/Linux : **28 contrôles ciblés** et **358 contrôles de régression** réussis. Vol et contrôles thermiques également exercés avec les ressources exactes de l’APK. Démarrage hors réseau avec packs installés ; mise à jour code 11 → 12 conservant packs, préférences et sauvegarde témoin. Signature et alignement 16 Kio vérifiés.
+
+Dans la scène de comparaison Linux, le menu passe de 541 à 22 appels de dessin. Les appels de dessin de la vue principale en vol restent inchangés : le coût du décor doit encore être réduit. Ces mesures ne prouvent pas une baisse de température ni la disparition des crashes sur S23 Ultra. Les essais prolongés de cette version et le nouveau compteur natif restent à valider sur téléphone.
+
+Le menu **COPIER LE DIAGNOSTIC** fournit les fenêtres récentes, l’état thermique, les reflets et les coûts d’écriture. Installer en mise à jour sans désinstaller.
 
 Les archives « Source code » automatiques de GitHub contiennent ce dépôt de distribution. Les sources complètes, la procédure de construction et les preuves sont livrées séparément à l’auteur.
